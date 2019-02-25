@@ -41,7 +41,7 @@ namespace CustomerAddressManager.WebApi.Middleware
 
             var type = exception.GetType();
 
-            if (type.IsGenericTypeDefinition)
+            if (type.IsGenericType)
             {
                 var genericType = type.GetGenericTypeDefinition();
 

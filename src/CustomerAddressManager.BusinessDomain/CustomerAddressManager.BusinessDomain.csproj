@@ -9,7 +9,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\CustomerAddressManager.Dal\CustomerAddressManager.Dal.csproj" />
+    <ProjectReference Include="..\CustomerAddressManager.Dal\CustomerAddressManager.Dal.csproj" />
   </ItemGroup>
 
 </Project>
