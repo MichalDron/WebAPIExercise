@@ -29,7 +29,7 @@ namespace CustomerAddressManager.WebApi.Controllers
         public ActionResult Update([FromBody] Customer value)
         {
             this.customerService.Update(value);
-            return CreatedAtAction(nameof(CustomersController.GetSingle), new { customerId = value.CustomerId, name = value.Name }, value);
+            return Ok();
         }
 
         [HttpDelete("{customerId}/names/{name}")]

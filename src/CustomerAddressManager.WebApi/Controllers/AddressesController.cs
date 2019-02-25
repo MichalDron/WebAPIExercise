@@ -27,7 +27,7 @@ namespace CustomerAddressManager.WebApi.Controllers
         public ActionResult Update([FromBody] Address value)
         {
             this.addressService.Update(value);
-            return CreatedAtAction(nameof(AddressesController.GetSingle), new { customerId = value.CustomerId, addressType = value.AddressType }, value);
+            return Ok();
         }
 
         [HttpDelete("{customerId}/addressTypes/{addressType}")]
