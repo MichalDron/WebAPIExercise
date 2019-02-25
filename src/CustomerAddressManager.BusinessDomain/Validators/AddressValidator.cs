@@ -25,10 +25,10 @@ namespace CustomerAddressManager.BusinessDomain.Validators
 
         private const int MinStringLength = 1;
 
-        public AddressValidator(bool customerIdNotRequired = false)
+        public AddressValidator()
         {
             RuleFor(x => x.CustomerId)
-                .NotNull().When(x => !customerIdNotRequired)
+                .NotNull()
                 .Length(MinStringLength, FieldConfigurationConsts.IdFieldLength);
 
             RuleFor(x => x.AddressType)
