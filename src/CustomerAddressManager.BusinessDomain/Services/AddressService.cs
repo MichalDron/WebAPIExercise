@@ -9,10 +9,12 @@ namespace CustomerAddressManager.BusinessDomain.Services
     public class AddressService : IAddressService
     {
         private readonly IRepository<Address> addressRepository;
+        private readonly IRepository<Customer> customerRepository;
 
-        public AddressService(IRepository<Address> addressRepository)
+        public AddressService(IRepository<Address> addressRepository, IRepository<Customer> customerRepository)
         {
             this.addressRepository = addressRepository;
+            this.customerRepository = customerRepository;
         }
 
         public IEnumerable<Address> GetAll()
@@ -48,6 +50,11 @@ namespace CustomerAddressManager.BusinessDomain.Services
             if (entity != null)
             {
                 throw new EntityAlreadyExistsException<Address>();
+            }
+
+            if (!this.customerRepository.Get(x => x.CustomerId == commandEntity.CustomerId).Any())
+            {
+                throw new EntityNotFoundException<Customer>();
             }
 
             this.addressRepository.Create(commandEntity);
